@@ -1,6 +1,6 @@
 var Page = require('./page.js');
 
-var HomePage = function() {
+var homePage = function() {
 
   /**
    * Call super constructor.
@@ -14,7 +14,7 @@ var HomePage = function() {
 
   this.speakers = element.all(by.css('figcaption'));
 
-  this.footer = require('../modules/footer');
+  //this.footer = require('../modules/footer');
 
   this.get = function() {
     this.load('/');
@@ -43,17 +43,17 @@ var HomePage = function() {
   };
 
   this.scrolltoLocationSection = function() {
-    var sectionPlace = element(by.xpath('//h3[contains(text(),"Miejsce")]'));
+    var sectionPlace = element(by.xpath('//*[contains(text(),"LOCATION")]'));
     this.scrollToElement(sectionPlace)
   };
 
   this.scrolltoSperakersSection = function() {
-    var sectionPlace = element(by.xpath('//h3[contains(text(),"Mówcy")]'));
+    var sectionPlace = element(by.xpath('//*[contains(text(),"SPEAKERS")]'));
     this.scrollToElement(sectionPlace);
   };
 };
 
-HomePage.prototype = Object.create(Page.prototype);
-HomePage.prototype.constructor = HomePage;
+homePage.prototype = Object.create(Page.prototype);
+homePage.prototype.constructor = homePage;
 
-module.exports = new HomePage();
+module.exports = new homePage();

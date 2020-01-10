@@ -3,7 +3,8 @@ var Contact = function() {
   this.menuItems = element.all(by.css('ul.nav > li > a')); 
 
   this.get = function() {
-    browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/contact.html');
+  //  browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/contact.html');
+    browser.driver.get('http://aadays.pl');
   };
 
   this.getTitle = function() {

@@ -8,7 +8,7 @@ describe('How to do it in JS homepage', function() {
 	});
 
 	it('should haveAgile & Automation Days | Konferencja i Warsztaty title', function(){
-		expect(homePage.getTitle()).toEqual("Agile & Automation Days | Konferencja i Warsztaty");
+		expect(homePage.getTitle()).toEqual("Agile & Automation Days | Conference & Workshops");
 	});
 
 	it('should contain correct speakers', function(){
@@ -18,6 +18,8 @@ describe('How to do it in JS homepage', function() {
 		homePage.takeScreenshot("screen-2");
 		homePage.scrollPageDown();
 		homePage.takeScreenshot("screen-3");
+		homePage.scrollPageDown();
+		homePage.takeScreenshot("screen-4");
 		expect(homePage.getSpeakers()).toEqual(speakers.data);
 	});
 

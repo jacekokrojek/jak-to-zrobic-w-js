@@ -37,7 +37,7 @@ exports.config = {
       jasmine.getEnv().addReporter( new Jasmine2HtmlReporter({}));
 
       browser.ignoreSynchronization = true;
-      browser.baseUrl = 'http://jacekokrojek.github.io/jak-to-zrobic-w-js';
+      browser.baseUrl = 'http://aadays.pl';
 
       // Reference to directories used in requires within source files
       browser.__dataDir = __dirname + '/data/',

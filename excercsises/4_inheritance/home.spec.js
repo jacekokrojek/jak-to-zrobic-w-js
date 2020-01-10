@@ -1,17 +1,20 @@
-var homePage = require(browser.__pagesDir + '/home');
-var speakers = require(browser.__dataDir + '/speakers');
+var HomePage = require(browser.__pagesDir + '/home');
+//var speakers = require(browser.__dataDir + '/speakers');
 
-describe('How to do it in JS homepage', function() {
 
-	beforeEach(function () {
-		homePage.get();
+describe('How to do it in JS homepage', function () {
+
+		beforeEach(function () {
+			HomePage.get();
+		});
+
+	it('should Protractor workshop | Home title', function () {
+	//	browser.driver.get('http://aadays.pl');
+		expect(HomePage.getTitle()).toEqual("Protractor workshop | Home");
 	});
 
-	it('should haveAgile & Automation Days | Konferencja i Warsztaty title', function(){
-		expect(homePage.getTitle()).toEqual("Agile & Automation Days | Konferencja i Warsztaty");
-	});
-
-	xit('should contain correct speakers', function(){
+	xit('should contain correct speakers', function () {
+		browser.driver.get('http://aadays.pl');
 		homePage.scrolltoSperakersSection();
 		homePage.takeScreenshot("screen-1");
 		homePage.scrollPageDown();
