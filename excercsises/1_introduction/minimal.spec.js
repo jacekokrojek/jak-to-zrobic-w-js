@@ -1,9 +1,5 @@
 describe('Protractor workshop app', function () {
 
-	// beforeEach(function () {
-	//
-	// });
-
 	it('should have home page with title Protractor workshop | Home', function () {
 		browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/');
 		var pageTitle = browser.driver.getTitle();
@@ -16,18 +12,11 @@ describe('Protractor workshop app', function () {
 		expect(footerCopyright.getText()).toContain(expectedHTML)
 	});
 
-	/**
-	 * Check http://angular.github.io/protractor/#/api?view=ElementFinder
-	 * to see how to select element for verification
-	 */
-
 	it('should have "Example headline 1" carousel item after entering site', function () {
 		var examplehead = element(by.xpath('//body/div/div/div/div/div/div/div/div'));
 		var expecthead = "Example Headline 1"
 		expect(examplehead.getText()).toContain(expecthead)
 	});
-
-
 
 	it('should have correct feature header', function () {
 		var featureheaderA = element(by.xpath('//div[@class="span4"][1]'));
@@ -42,15 +31,8 @@ describe('Protractor workshop app', function () {
 		var expectfeatureC = "Feature C"
 		expect(featureheaderC.getText()).toContain(expectfeatureC)
 	});
-	/**
-	 * Check http://angular.github.io/protractor/#/api?view=ElementArrayFinder
-	 * to see how get function can be used
-	 */
+
 	it('should have menu items with links to "Home", "About", "Services", "Blog", "Contact",  pages', function () {
-		// var menuItems = element.all(by.css('ul.nav > li > a')).then(function (ul) {
-		// 	expect(ul.length).toBe(5);
-		// 	expect(ul[0].getText()).toBe('Home');
-		// });
 
 		var HOME_INDEX = 0
 		var ABOUT_INDEX = 1
@@ -60,18 +42,13 @@ describe('Protractor workshop app', function () {
 
 		var menuItems = element.all(by.css('ul.nav > li > a'))
 
-		expect(menuItems.get(HOME_INDEX).getText()).toBe('Home');	
-		expect(menuItems.get(ABOUT_INDEX).getText()).toBe('About');	
-		expect(menuItems.get(SERVICES_INDEX).getText()).toBe('Services');	
-		expect(menuItems.get(BLOG_INDEX).getText()).toBe('Blog');	
-		expect(menuItems.get(CONTACT_INDEX).getText()).toBe('Contact');	
+		expect(menuItems.get(HOME_INDEX).getText()).toBe('Home');
+		expect(menuItems.get(ABOUT_INDEX).getText()).toBe('About');
+		expect(menuItems.get(SERVICES_INDEX).getText()).toBe('Services');
+		expect(menuItems.get(BLOG_INDEX).getText()).toBe('Blog');
+		expect(menuItems.get(CONTACT_INDEX).getText()).toBe('Contact');
 
 	});
-
-	/**
-	* Check http://angular.github.io/protractor/#/api?view=ElementArrayFinder
-	* to see how map function can be used to verify content of multiple elements
-	*/
 
 	it('should have Feature A sections ...', function () {
 		var features = element.all(by.xpath('//h2'))
@@ -85,14 +62,11 @@ describe('Protractor workshop app', function () {
 		var features = element.all(by.xpath('//h2'))
 		expect(features.get(2).getText()).toBe('Feature C');
 	});
-	/**
-	 * Check http://angular.github.io/protractor/#/api?view=ElementArrayFinder
-	 * to see how fileter function can be used select elements based on condition
-	 */
+
 	it('should route to "Blog" pages after selecting link', function () {
 		var BLOG_INDEX = 3
 		var menuItems = element.all(by.css('ul.nav > li > a'));
-		menuItems.get(BLOG_INDEX).click();	
+		menuItems.get(BLOG_INDEX).click();
 
 		expect(browser.getCurrentUrl()).toMatch(/http:.*blog\.html/);
 

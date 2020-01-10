@@ -1,17 +1,16 @@
-var Contact = function() {
+var Contact = function () {
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
+  this.menuItems = element.all(by.css('ul.nav > li > a'));
 
-  this.get = function() {
-  //  browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/contact.html');
+  this.get = function () {
     browser.driver.get('http://aadays.pl');
   };
 
-  this.getTitle = function() {
+  this.getTitle = function () {
     return browser.driver.getTitle();
   };
 
-  this.clickMenuItemAt = function(idx) {
+  this.clickMenuItemAt = function (idx) {
     this.menuItems.get(idx).click();
   };
 

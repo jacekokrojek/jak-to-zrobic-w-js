@@ -1,38 +1,148 @@
-{ "data": [
-  { "index" : 0, "name" : "KEYNOTE: ANNE-MARIE CHARRETT" },
-  { "index" : 1, "name" : "KEYNOTE: BAS DIJKSTRA" },
-  { "index" : 2, "name" : "MARK ABRAHAMS" },
-  { "index" : 3, "name" : "KASIA BALCERZAK" },
-  { "index" : 4, "name" : "JEVGENI DEMIDOV" },
-  { "index" : 5, "name" : "IANCHO DIMITROV" },
-  { "index" : 6, "name" : "IOANA FINARU PORCARASU" },
-  { "index" : 7, "name" : "BONI GARCÍA" },
-  { "index" : 8, "name" : "KAMILA GAWROŃSKA" },
-  { "index" : 9, "name" : "WOJCIECH GAWROŃSKI" },
-  { "index" : 10, "name" : "JITESH GOSAI" },
-  { "index" : 11, "name" : "MYKOLA GUROV" },
-  { "index" : 12, "name" : "ALI HILL" },
-  { "index" : 13, "name" : "BART SZULC" },
-  { "index" : 14, "name" : "JAKUB KAŁUŻNY" },
-  { "index" : 15, "name" : "DOMINIK KAPUSTA" },
-  { "index" : 16, "name" : "KRZYSZTOF KĘPIŃSKI" },
-  { "index" : 17, "name" : "TOMASZ KLEPACKI" },
-  { "index" : 18, "name" : "MICHAŁ KRZYŻANOWSKI" },
-  { "index" : 19, "name" : "JAKUB KURCEK" },
-  { "index" : 20, "name" : "ROBERT MEANEY" },
-  { "index" : 21, "name" : "JACEK MILEWSKI" },
-  { "index" : 22, "name" : "MARTA MUSIK" },
-  { "index" : 23, "name" : "TADASHI NEMOTO" },
-  { "index" : 24, "name" : "ADAM NOWAK" },
-  { "index" : 25, "name" : "ANNA RADZIKOWSKA" },
-  { "index" : 26, "name" : "ALEXANDER REELSEN" },
-  { "index" : 27, "name" : "JAKUB ROSIŃSKI" },
-  { "index" : 28, "name" : "ŁUKASZ ROSŁONEK" },
-  { "index" : 29, "name" : "VIKTOR SLAVCHEV" },
-  { "index" : 30, "name" : "MILENA SOBOLEWSKA-LEŚNIEWSKA" },
-  { "index" : 31, "name" : "THOMAS SUNDBERG" },
-  { "index" : 32, "name" : "VARUNA SRIVASTAVA" },
-  { "index" : 33, "name" : "ELAINE SULLIVAN (TALK)" },
-  { "index" : 34, "name" : "ELAINE SULLIVAN (WORKSHOP)" },
-  { "index" : 35, "name" : "GEOFFREY VAN DER TAS" } ]
+{
+    "data": [
+        {
+            "index": 0,
+            "name": "KEYNOTE: ANNE-MARIE CHARRETT"
+        },
+        {
+            "index": 1,
+            "name": "KEYNOTE: BAS DIJKSTRA"
+        },
+        {
+            "index": 2,
+            "name": "MARK ABRAHAMS"
+        },
+        {
+            "index": 3,
+            "name": "KASIA BALCERZAK"
+        },
+        {
+            "index": 4,
+            "name": "JEVGENI DEMIDOV"
+        },
+        {
+            "index": 5,
+            "name": "IANCHO DIMITROV"
+        },
+        {
+            "index": 6,
+            "name": "IOANA FINARU PORCARASU"
+        },
+        {
+            "index": 7,
+            "name": "BONI GARCÍA"
+        },
+        {
+            "index": 8,
+            "name": "KAMILA GAWROŃSKA"
+        },
+        {
+            "index": 9,
+            "name": "WOJCIECH GAWROŃSKI"
+        },
+        {
+            "index": 10,
+            "name": "JITESH GOSAI"
+        },
+        {
+            "index": 11,
+            "name": "MYKOLA GUROV"
+        },
+        {
+            "index": 12,
+            "name": "ALI HILL"
+        },
+        {
+            "index": 13,
+            "name": "BART SZULC"
+        },
+        {
+            "index": 14,
+            "name": "JAKUB KAŁUŻNY"
+        },
+        {
+            "index": 15,
+            "name": "DOMINIK KAPUSTA"
+        },
+        {
+            "index": 16,
+            "name": "KRZYSZTOF KĘPIŃSKI"
+        },
+        {
+            "index": 17,
+            "name": "TOMASZ KLEPACKI"
+        },
+        {
+            "index": 18,
+            "name": "MICHAŁ KRZYŻANOWSKI"
+        },
+        {
+            "index": 19,
+            "name": "JAKUB KURCEK"
+        },
+        {
+            "index": 20,
+            "name": "ROBERT MEANEY"
+        },
+        {
+            "index": 21,
+            "name": "JACEK MILEWSKI"
+        },
+        {
+            "index": 22,
+            "name": "MARTA MUSIK"
+        },
+        {
+            "index": 23,
+            "name": "TADASHI NEMOTO"
+        },
+        {
+            "index": 24,
+            "name": "ADAM NOWAK"
+        },
+        {
+            "index": 25,
+            "name": "ANNA RADZIKOWSKA"
+        },
+        {
+            "index": 26,
+            "name": "ALEXANDER REELSEN"
+        },
+        {
+            "index": 27,
+            "name": "JAKUB ROSIŃSKI"
+        },
+        {
+            "index": 28,
+            "name": "ŁUKASZ ROSŁONEK"
+        },
+        {
+            "index": 29,
+            "name": "VIKTOR SLAVCHEV"
+        },
+        {
+            "index": 30,
+            "name": "MILENA SOBOLEWSKA-LEŚNIEWSKA"
+        },
+        {
+            "index": 31,
+            "name": "THOMAS SUNDBERG"
+        },
+        {
+            "index": 32,
+            "name": "VARUNA SRIVASTAVA"
+        },
+        {
+            "index": 33,
+            "name": "ELAINE SULLIVAN (TALK)"
+        },
+        {
+            "index": 34,
+            "name": "ELAINE SULLIVAN (WORKSHOP)"
+        },
+        {
+            "index": 35,
+            "name": "GEOFFREY VAN DER TAS"
+        }
+    ]
 }

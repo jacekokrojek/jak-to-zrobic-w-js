@@ -1,15 +1,12 @@
 var HomePage = require(browser.__pagesDir + '/home');
-//var speakers = require(browser.__dataDir + '/speakers');
-
 
 describe('How to do it in JS homepage', function () {
 
-		beforeEach(function () {
-			HomePage.get();
-		});
+	beforeEach(function () {
+		HomePage.get();
+	});
 
 	it('should Protractor workshop | Home title', function () {
-	//	browser.driver.get('http://aadays.pl');
 		expect(HomePage.getTitle()).toEqual("Protractor workshop | Home");
 	});
 

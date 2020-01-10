@@ -1,21 +1,21 @@
 var Page = require('./page');
-var contactPage = function() {
+var contactPage = function () {
 
   Page.call(this);
 
   var self = this;
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
+  this.menuItems = element.all(by.css('ul.nav > li > a'));
 
-  this.get = function() {
+  this.get = function () {
     this.load('/contact.html');
   };
 
-  this.clickMenuAtIdx = function(idx) {
+  this.clickMenuAtIdx = function (idx) {
     this.menuItems.get(idx).click();
   };
 
-  this.getMenuTextAtIdx = function(idx) {
+  this.getMenuTextAtIdx = function (idx) {
     return this.menuItems.get(idx);
   };
 };
