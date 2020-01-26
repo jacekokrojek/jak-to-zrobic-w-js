@@ -35,7 +35,8 @@
 
     <!--GOOGLE MAP-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-     <script>
+     <script>	
+	     $('#loading').hide();
 		var map;
 		function initialize() {
 		  var mapOptions = {
@@ -200,14 +201,18 @@ Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante so
           }
       });
       if (!empty) {
-	      setTimeout( function(){
+	      $('#loading').show();
+	      setTimeout( function(){	      
 		$('span.span6 form').remove();
           	$('span.span6.message').append("<h4 class='alert alert-success'>Your message has been sent.</h4>");
+		$('#loading').hide();
 	      }, 5000);
       }
   });
 </script>
 <!--/.Footer-->
-
+<div id="loading">
+  <div class="loader"></div>
+</div>
 </body>
 </html>
