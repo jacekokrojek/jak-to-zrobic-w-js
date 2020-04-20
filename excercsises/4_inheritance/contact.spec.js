@@ -1,17 +1,16 @@
-var HomePage = require(browser.__pagesDir + '/home');
+var contactPage = require(browser.__pagesDir + '/contact');
 
-describe('How to do it in JS homepage', function () {
+describe('How to do it in JS contactpage', function () {
 
 	beforeEach(function () {
-		HomePage.get();
+		contactPage.get();
 	});
 
-	it('should Protractor workshop | Home title', function () {
-		expect(HomePage.getTitle()).toEqual("Protractor workshop | Home");
+	it('should Protractor workshop | Contact us title', function () {
+		expect(contactPage.getTitle()).toEqual("Protractor workshop | Contact us");
 	});
 
 	xit('should contain correct speakers', function () {
-		browser.driver.get('http://aadays.pl');
 		homePage.scrolltoSperakersSection();
 		homePage.takeScreenshot("screen-1");
 		homePage.scrollPageDown();

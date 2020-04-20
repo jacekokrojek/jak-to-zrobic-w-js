@@ -1,19 +1,48 @@
-var Contact = function() {
+var Page = require('./page');
+var contactPage = function () {
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
+  Page.call(this);
 
-  this.get = function() {
-    browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/contact.html');
+  var self = this;
+
+  this.menuItems = element.all(by.css('ul.nav > li > a'));
+
+  this.get = function () {
+    this.load('/contact.html');
   };
 
-  this.getTitle = function() {
-    return browser.driver.getTitle();
-  };
-
-  this.clickMenuItemAt = function(idx) {
+  this.clickMenuAtIdx = function (idx) {
     this.menuItems.get(idx).click();
   };
 
-};
+  this.getMenuTextAtIdx = function (idx) {
+    return this.menuItems.get(idx);
+  };
 
-module.exports = new Contact();
+  this.sendMessage = function (NAME, EMAIL, CONTENT) {
+    var inputName = element(by.id('name'));
+    var inputEmail = element(by.id('email'));
+    var inputText = element(by.id('content'));
+    var clickbutton = element(by.buttonText('Submit'));
+
+    inputName.sendKeys(NAME);
+    inputEmail.sendKeys(EMAIL);
+    inputText.sendKeys(CONTENT);
+    clickbutton.click();
+
+  };
+
+  this.getFinalContent = function () {
+    var CONTAIIN = 'Your message has been sent.';
+    var expectmessage = element(by.css('.alert-success'));
+    var EC = protractor.ExpectedConditions;
+    browser.wait(EC.textToBePresentInElement(expectmessage, CONTAIIN), 5000);
+    return expectmessage.getText();
+  };
+
+
+};
+contactPage.prototype = Object.create(Page.prototype);
+contactPage.prototype.constructor = contactPage;
+
+module.exports = new contactPage();

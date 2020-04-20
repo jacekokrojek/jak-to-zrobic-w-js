@@ -12,7 +12,6 @@ Page.prototype.load = function (url) {
 Page.prototype.getTitle = function () {
     return browser.driver.getTitle();
 };
-
 Page.prototype.log = function (message) {
     if (this.logEnabled) {
         console.error.apply(console, [clc.cyan('DEBUG|')].concat(Array.prototype.slice.call(arguments)));

@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "protractor excercsises/1_introduction/conf.js",
-    "preinstall": "npm install -g protractor && webdriver-manager update"
+    "oldtest": "protractor conf.js",
+    "webdriver-update": "node node_modules/protractor/bin/webdriver-manager --versions.chrome=77.0.3865.90 update"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "request": "^2.79.0",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "protractor": "^5.4.2"
   }
 }

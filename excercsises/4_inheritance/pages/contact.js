@@ -1,19 +1,25 @@
-var Contact = function() {
+var Page = require('./page');
+var contactPage = function () {
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
+  Page.call(this);
 
-  this.get = function() {
-    browser.driver.get('contact.html');
+  var self = this;
+
+  this.menuItems = element.all(by.css('ul.nav > li > a'));
+
+  this.get = function () {
+    this.load('/contact.html');
   };
 
-  this.getTitle = function() {
-    return browser.driver.getTitle();
-  };
-
-  this.clickMenuItemAt = function(idx) {
+  this.clickMenuAtIdx = function (idx) {
     this.menuItems.get(idx).click();
   };
 
+  this.getMenuTextAtIdx = function (idx) {
+    return this.menuItems.get(idx);
+  };
 };
+contactPage.prototype = Object.create(Page.prototype);
+contactPage.prototype.constructor = contactPage;
 
-module.exports = new Contact();
+module.exports = new contactPage();
