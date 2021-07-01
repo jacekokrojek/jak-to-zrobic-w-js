@@ -7,10 +7,21 @@ describe('Protractor Workshop app', function() {
 	});
 
 	it('hould have Contact page with title "Protractor workshop | Contact us"', function(){
-		expect(contactPage.getTitle()).toEqual("Protractor workshop | Home");
+		expect(contactPage.getTitle()).toEqual("Protractor workshop | Contact us");
 	});
 
-	xit('should display text "Your message has been sent." when user sends message  ', function(){
+	it('should display text "Your message has been sent." when user sends message  ', function(){
+		contactPage.sendName('Bartek');
+		contactPage.sendEmail('cos@gmail.con');
+		contactPage.sendMsg('hello');
+		contactPage.clickSubmit();
+		var ec = protractor.ExpectedConditions;
+		var DisplayMessage = "Your message has been sent.";
+		var Message = contactPage.findMessageBy(DisplayMessage, 'h3');
+		browser.wait(ec.visibilityOf(Message), 15000);
+		expect(Message.isDisplayed()).toBe(true);
+		
+		
 		
 
 	});

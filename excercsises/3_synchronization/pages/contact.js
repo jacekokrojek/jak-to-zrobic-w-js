@@ -1,4 +1,4 @@
-var Contact = function() {
+var ContactPage = function() {
 
   this.menuItems = element.all(by.css('ul.nav > li > a')); 
 
@@ -14,6 +14,40 @@ var Contact = function() {
     this.menuItems.get(idx).click();
   };
 
+  this.getName = function(){
+    return element(by.css('#name'))
+  };
+
+  this.sendName = function (name) {
+    this.getName().sendKeys(name)
+  };
+
+  this.getEmail = function () {
+    return element(by.css('#email'))
+  };
+
+  this.sendEmail = function (email) {
+    this.getEmail().sendKeys(email)
+  };
+
+  this.getMessage = function () {
+    return element(by.css('#content'))
+  };
+
+  this.sendMsg = function(msg){
+    this.getMessage().sendKeys(msg)
+  };
+
+
+  this.clickSubmit = function(){
+      element(by.css('button[type = "submit"]')).click();
+  };
+
+
+  this.findMessageBy = function (text, tagName ='*') {
+    return element(by.xpath("//" +tagName+ "[contains(text(),'" + text + "')]"));
+
+};
 };
 
-module.exports = new Contact();
+module.exports = new ContactPage();
