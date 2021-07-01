@@ -1,13 +1,16 @@
+var Page = require('./page');
+
 var Contact = function() {
+
+  Page.call(this);
+
+  var self = this;
 
   this.menuItems = element.all(by.css('ul.nav > li > a')); 
 
-  this.get = function() {
-    browser.driver.get('contact.html');
-  };
 
-  this.getTitle = function() {
-    return browser.driver.getTitle();
+  this.get = function() {
+   this.load('/contact.html');
   };
 
   this.clickMenuItemAt = function(idx) {
@@ -16,4 +19,6 @@ var Contact = function() {
 
 };
 
+Contact.prototype = Object.create(Page.prototype);
+Contact.prototype.constructor = Contact;
 module.exports = new Contact();

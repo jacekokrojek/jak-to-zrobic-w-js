@@ -21,12 +21,16 @@ describe('Protractor workshop app', function() {
 	 * to see how to select element for verification
 	 */
 
-	xit('should have "Example headline 1" carousel item after entering site', function(){	
-
+	it('should have "Example Headline 1" carousel item after entering site', function(){
+		var header = element(by.css('.active h1'));
+		var expectedHeader = "Example Headline 1";
+		expect(header.getText()).toContain(expectedHeader); 
 	});
 	
-	xit('should have correct feature header', function(){
-
+	it('should have correct feature header', function(){
+		var feature = element(by.xpath('//div[2]/div[1]/h1'));
+		var expectedFeature = "At vero eos et accusamus et iusto odio dignissimos";
+		expect(feature.getText()).toEqual(expectedFeature);
 	});
 
 	/**
@@ -34,7 +38,13 @@ describe('Protractor workshop app', function() {
 	 * to see how get function can be used
 	 */
 	it('should have menu items with links to "Home", "About", "Services", "Blog", "Contact",  pages',function(){
-		var menuItems = element.all(by.css('ul.nav > li > a'));		
+		var menuItems = element.all(by.css('ul.nav > li > a'));	
+		expect(menuItems.get(0).getText()).toBe("Home");
+		expect(menuItems.get(1).getText()).toBe("About");
+		expect(menuItems.get(2).getText()).toBe("Services");
+		expect(menuItems.get(3).getText()).toBe("Blog");
+		expect(menuItems.get(4).getText()).toBe("Contact");
+			
 	});
 
 	 /**
@@ -53,5 +63,21 @@ describe('Protractor workshop app', function() {
 	it('should route to "Blog" pages after selecting link',function(){
 		var menuItems = element.all(by.css('ul.nav > li > a'));
 	});
+
+	it ('should present test "Thank you for registration" after entering correct user details', function(){
+		browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/signup.html');
+		var userName = element(by.css('#usernamesignup'));
+		var email = element(by.css('#emailsignup'));
+		var password = element(by.css('#passwordsignup'));
+		var confirmPassword = element(by.css('#passwordsignup_confirm'));
+		var submit = element(by.css('.signin.button .btn'));
+		userName.sendKeys("Kamila");
+		email.sendKeys("email@wp.pl");
+		password.sendKeys("klucze");
+		confirmPassword.sendKeys("klucze");
+		submit.click();
+		var header1 = element(by.xpath('//div/div/h2'));
+		expect(header1.getText()).toBe("Thank you for registration");
+	})
 
 });
