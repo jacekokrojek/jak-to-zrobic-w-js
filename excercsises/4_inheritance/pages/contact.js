@@ -1,19 +1,37 @@
-var Contact = function() {
+let Page = require("./page");
+class Contact extends Page {
+  load() {
+    super.load("/contact.html");
+  }
+  get() {
+    browser.driver.get("contact.html");
+  }
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
-
-  this.get = function() {
-    browser.driver.get('contact.html');
-  };
-
-  this.getTitle = function() {
+  getTitle() {
     return browser.driver.getTitle();
-  };
-
-  this.clickMenuItemAt = function(idx) {
-    this.menuItems.get(idx).click();
-  };
-
-};
+  }
+  nameInput(name) {
+    element(by.id("name")).clear().sendKeys(name);
+  }
+  emailInput(email) {
+    element(by.id("email")).clear().sendKeys(email);
+  }
+  contentInput(content) {
+    element(by.id("content")).clear().sendKeys(content);
+  }
+  submitButton() {
+    element(by.css(".test")).click();
+  }
+  checkSucces(success) {
+    let expectSuccess = element(by.css(".alert-success"));
+    let epectCondition = protractor.ExpectedConditions;
+    browser.wait(
+      epectCondition.textToBePresentInElement(expectSuccess, success),
+      6000
+    );
+    return expectSuccess.getText();
+  }
+}
+module.exports = Contact;
 
 module.exports = new Contact();

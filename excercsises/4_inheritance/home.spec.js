@@ -1,24 +1,24 @@
-var homePage = require(browser.__pagesDir + '/home');
-var speakers = require(browser.__dataDir + '/speakers');
+let homePage = require("./pages/home");
 
-describe('How to do it in JS homepage', function() {
+describe("Protractor Workshop app", function () {
+  beforeEach(function () {
+    homePage.load();
+  });
 
-	beforeEach(function () {
-		homePage.get();
-	});
+  it('should have home page with title "Protractor workshop | Home"', function () {
+    expect(homePage.getTitle()).toEqual("Protractor workshop | Home");
+  });
 
-	it('should haveAgile & Automation Days | Konferencja i Warsztaty title', function(){
-		expect(homePage.getTitle()).toEqual("Agile & Automation Days | Konferencja i Warsztaty");
-	});
+  it('should have "Example headline 2" carousel item after clicking on next arrow', function () {
+    const expectedHeader = "Example Headline 2";
+    homePage.caruselButton();
+    expect(homePage.getHeadline()).toEqual(expectedHeader);
+  });
 
-	xit('should contain correct speakers', function(){
-		homePage.scrolltoSperakersSection();
-		homePage.takeScreenshot("screen-1");
-		homePage.scrollPageDown();
-		homePage.takeScreenshot("screen-2");
-		homePage.scrollPageDown();
-		homePage.takeScreenshot("screen-3");
-		expect(homePage.getSpeakers()).toEqual(speakers.data);
-	});
-
+  it("should display drop down after clicking on About menu item", function () {
+    homePage.dropdownMenu();
+    expect(browser.getCurrentUrl()).toEqual(
+      "http://jacekokrojek.github.io/jak-to-zrobic-w-js/about.html"
+    );
+  });
 });

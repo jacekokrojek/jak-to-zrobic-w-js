@@ -1,34 +1,27 @@
-var Page = require('./page');
+let Page = require("./page");
 
-var HomePage = function() {
+class Home extends Page {
+  load() {
+    super.load("/index.html");
+  }
 
-  /**
-   * Call super constructor.
-   */
-  Page.call(this);
+  getTitle() {
+    return browser.driver.getTitle();
+  }
+  caruselButton() {
+    element(by.css("a.right")).click();
+    browser.sleep(1000);
+  }
 
-  /**
-   * Self reference.
-   */
-  var self = this;
+  getHeadline() {
+    return element(by.css("div.active h1")).getText();
+  }
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
+  dropdownMenu() {
+    element.all(by.css("ul.nav > li > a")).get(1).click();
+    element.all(by.css("ul.dropdown-menu > li > a")).get(2).click();
+    return element(by.css(".dropdown-menu"));
+  }
+}
 
-  this.get = function() {
-	this.load('/');    
-  };
-
-  this.clickMenuAtIdx = function(idx) {
-    this.menuItems.get(idx).click();
-  };
-
-  this.getMenuTextAtIdx = function(idx) {
-    return this.menuItems.get(idx);
-  };
-  
-};
-
-HomePage.prototype = Object.create(Page.prototype);
-HomePage.prototype.constructor = HomePage;
-
-module.exports = new HomePage();
+module.exports = new Home();

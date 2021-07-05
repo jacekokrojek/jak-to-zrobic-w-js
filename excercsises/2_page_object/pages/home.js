@@ -11,7 +11,7 @@ var HomePage = function() {
   };
 
   this.clickMenuAtIdx = function(idx) {
-    this.menuItems.get(idx).click();
+    return this.menuItems.get(idx).click();
   };
 
   this.getMenuTextAtIdx = function(idx) {
