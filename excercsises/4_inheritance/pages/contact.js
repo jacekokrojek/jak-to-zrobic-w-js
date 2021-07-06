@@ -10,27 +10,18 @@ class Contact extends Page {
   getTitle() {
     return browser.driver.getTitle();
   }
-  nameInput(name) {
+  fillFormSubmitCheckSuccess (name, email, content,success) {
     element(by.id("name")).clear().sendKeys(name);
-  }
-  emailInput(email) {
     element(by.id("email")).clear().sendKeys(email);
-  }
-  contentInput(content) {
     element(by.id("content")).clear().sendKeys(content);
-  }
-  submitButton() {
     element(by.css(".test")).click();
-  }
-  checkSucces(success) {
-    let expectSuccess = element(by.css(".alert-success"));
+    let getSuccess = element(by.css(".alert-success"));
     let epectCondition = protractor.ExpectedConditions;
-    browser.wait(
-      epectCondition.textToBePresentInElement(expectSuccess, success),
+    browser.wait(epectCondition.textToBePresentInElement(getSuccess, success),
       6000
     );
-    return expectSuccess.getText();
-  }
+    return getSuccess.getText();
+  };
 }
 module.exports = Contact;
 

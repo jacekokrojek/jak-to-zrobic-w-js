@@ -11,14 +11,12 @@ describe("Protractor Workshop app", function () {
   });
 
   it('should have "Example headline 2" carousel item after clicking on next arrow', function () {
-    let expectedHeader = "Example Headline 2";
-    homePage.caruselButton();
-    let headline = homePage.getHeadline();
-    expect(headline).toEqual(expectedHeader);
+    let  headLine = "Example Headline 2";
+    expect(homePage.checkHeadLine()).toEqual(headLine);
   });
 
   it("should display drop down after clicking on About menu item", function () {
-    homePage.dropdownMenu();
+    homePage.checkDropDownMenuWorks();
     expect(browser.getCurrentUrl()).toEqual(
       "http://jacekokrojek.github.io/jak-to-zrobic-w-js/about.html"
     );

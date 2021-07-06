@@ -7,20 +7,14 @@ var HomePage = function() {
   this.getTitle = () => {
     return browser.driver.getTitle();
   };
-  this.caruselButton = ()=>{
-		let nextButton = element(by.css('a.right'));
-		nextButton.click();
+  this.checkHeadLine = ()=>{
+		element(by.css('a.right')).click();//click  carusel buttton to move
 		browser.sleep(1000);
+    return element(by.css('div.active h1')).getText(); //return ative header element
   }
-  this.getHeadline = ()=>{
-    let headlineValue = element(by.css('div.active h1'))
-     return headlineValue.getText();
-  }
-  this.dropdownMenu = ()=>{
-    let dropdown = element.all(by.css('ul.nav > li > a'));
-    dropdown.get(1).click();
-    let checkDropdown = element.all(by.css('ul.dropdown-menu > li > a'));
-    checkDropdown.get(2).click();
+  this.checkDropDownMenuWorks = ()=>{
+    element(by.xpath("//a[contains(text(), 'About')]")).click();
+    element(by.xpath("//a[contains(text(), 'History')]")).click();
   }
   
 };

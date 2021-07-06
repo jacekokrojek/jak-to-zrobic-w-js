@@ -1,3 +1,4 @@
+
 let Page = require("./page");
 
 class Home extends Page {
@@ -8,19 +9,14 @@ class Home extends Page {
   getTitle() {
     return browser.driver.getTitle();
   }
-  caruselButton() {
-    element(by.css("a.right")).click();
-    browser.sleep(1000);
+  checkHeadLine (){
+		element(by.css('a.right')).click();//click  carusel buttton to move
+		browser.sleep(1000);
+    return element(by.css('div.active h1')).getText(); //return ative header element
   }
-
-  getHeadline() {
-    return element(by.css("div.active h1")).getText();
-  }
-
-  dropdownMenu() {
-    element.all(by.css("ul.nav > li > a")).get(1).click();
-    element.all(by.css("ul.dropdown-menu > li > a")).get(2).click();
-    return element(by.css(".dropdown-menu"));
+  checkDropDownMenuWorks (){
+    element(by.xpath("//a[contains(text(), 'About')]")).click();
+    element(by.xpath("//a[contains(text(), 'History')]")).click();
   }
 }
 

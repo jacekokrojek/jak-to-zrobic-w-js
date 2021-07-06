@@ -10,10 +10,7 @@ describe("Protractor Workshop app", () => {
 
   it('should display text "Your message has been sent." when user sends message  ', () => {
     const success = "Your message has been sent.";
-    contactPage.nameInput("name name");
-    contactPage.emailInput("name.name@gmail.com");
-    contactPage.contentInput("content content");
-    contactPage.submitButton();
-    expect(contactPage.checkSucces(success)).toEqual(success);
+    
+    expect(contactPage.fillFormSubmitCheckSuccess("name name", "name.noname@gmail.com", "content content","Your message has been sent.")).toEqual(success);
   });
 });

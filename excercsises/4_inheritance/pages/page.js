@@ -1,3 +1,4 @@
+
 let clc = require('cli-color');
 
 class Page{

@@ -9,13 +9,11 @@ var HomePage = function() {
   this.getTitle = function() {
     return browser.driver.getTitle();
   };
-
-  this.clickMenuAtIdx = function(idx) {
-    return this.menuItems.get(idx).click();
+  this.getContactText = () => {
+    return element(by.xpath("//a[contains(text(), 'Contact')]")).getText();
   };
-
-  this.getMenuTextAtIdx = function(idx) {
-    return this.menuItems.get(idx);
+  this.getContactClick = () => {
+    element(by.xpath("//a[contains(text(), 'Contact')]")).click();
   };
   
 };

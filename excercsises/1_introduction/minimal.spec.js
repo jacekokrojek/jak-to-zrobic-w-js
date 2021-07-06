@@ -46,12 +46,9 @@ describe("Protractor workshop app", function () {
 
   it('should route to "Blog" pages after selecting link', function () {
     browser.driver.get("http://jacekokrojek.github.io/jak-to-zrobic-w-js/");
-    const idx = 3;
-    element.all(by.css("ul.nav > li > a")).then((el) => {
-      el[idx].click();
-      expect(browser.getCurrentUrl()).toEqual(
-        "http://jacekokrojek.github.io/jak-to-zrobic-w-js/blog.html"
-      );
-    });
+    element(by.xpath("//a[contains(text(), 'Blog')]")).click();
+    expect(browser.getCurrentUrl()).toEqual(
+      "http://jacekokrojek.github.io/jak-to-zrobic-w-js/blog.html"
+    );
   });
 });
