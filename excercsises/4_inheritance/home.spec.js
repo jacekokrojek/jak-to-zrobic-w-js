@@ -15,9 +15,7 @@ describe("Protractor Workshop app", function () {
   });
 
   it("should display drop down after clicking on About menu item", function () {
-    homePage.checkDropDownMenuWorks()
-    expect(browser.getCurrentUrl()).toEqual(
-      "http://jacekokrojek.github.io/jak-to-zrobic-w-js/about.html"
-    );
+    const dropDownMenuItems = ['Company','History','Team']
+    expect(homePage.checkDropDownMenuWorks()).toEqual(dropDownMenuItems);
   });
 });

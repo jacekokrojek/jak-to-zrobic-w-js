@@ -6,6 +6,8 @@ describe("Protractor Workshop app", function () {
   });
 
   it('should have "Get in touch" and "Address" sections on Contact Us page', function () {
-    homePage.getContactClick();
+    homePage.getContactClick()
+    expect(homePage.getItemsFromContactPage().isPresent()).toBe(true);  
+  
   });
-});
+})

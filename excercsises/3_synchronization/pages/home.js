@@ -14,9 +14,10 @@ var HomePage = function() {
   }
   this.checkDropDownMenuWorks = ()=>{
     element(by.xpath("//a[contains(text(), 'About')]")).click();
-    element(by.xpath("//a[contains(text(), 'History')]")).click();
+    return element.all(by.xpath("//*[contains(@class, 'dropdown-menu')]/li/a")).map((el) => {
+      return el.getText();
+    });
+      
   }
-  
-};
-
+}
 module.exports = new HomePage();

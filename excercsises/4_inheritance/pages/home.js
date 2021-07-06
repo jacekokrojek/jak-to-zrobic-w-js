@@ -14,9 +14,11 @@ class Home extends Page {
 		browser.sleep(1000);
     return element(by.css('div.active h1')).getText(); //return ative header element
   }
-  checkDropDownMenuWorks (){
+  checkDropDownMenuWorks(){
     element(by.xpath("//a[contains(text(), 'About')]")).click();
-    element(by.xpath("//a[contains(text(), 'History')]")).click();
+    return element.all(by.xpath("//*[contains(@class, 'dropdown-menu')]/li/a")).map((el) => {
+      return el.getText();
+    });
   }
 }
 

@@ -9,6 +9,9 @@ var HomePage = function() {
   this.getTitle = function() {
     return browser.driver.getTitle();
   };
+  this.getItemsFromContactPage = ()=>{
+    return element(by.xpath('//*/span/h3')),element(by.xpath('//*/fieldset/h3'));
+  }
   this.getContactText = () => {
     return element(by.xpath("//a[contains(text(), 'Contact')]")).getText();
   };
