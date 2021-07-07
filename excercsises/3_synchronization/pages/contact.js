@@ -14,7 +14,7 @@ var Contact = function () {
     element(by.id("content")).clear().sendKeys(content);
     element(by.css(".test")).click();
   };
-  this.findSuccessInformation = ()=>{
+  this.getSuccessInformation = ()=>{
     const success = "Your message has been sent.";
     let getSuccess = element(by.css(".alert-success"));
     let ec = protractor.ExpectedConditions;

@@ -16,7 +16,7 @@ class Contact extends Page {
     element(by.id("content")).clear().sendKeys(content);
     element(by.css(".test")).click();
   };
-  findSuccessInformation(){
+  getSuccessInformation(){
     const success = "Your message has been sent.";
     let getSuccess = element(by.css(".alert-success"));
     let ec = protractor.ExpectedConditions;

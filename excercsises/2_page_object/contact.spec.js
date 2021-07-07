@@ -9,9 +9,9 @@ describe("Protractor Workshop app", function () {
   });
 
   it('should have "Get in touch" and "Address" sections on Contact Us page', function () {
-    homePage.findContactBtn();
+    homePage.openContact();
     const contactPageItems = ["Get in Touch","Address"];
-    expect(homePage.findAdressAndgetInTouch()).toEqual(contactPageItems);
+    expect(homePage.getSectionTitles()).toEqual(contactPageItems);
    
   
   });

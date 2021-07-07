@@ -11,7 +11,7 @@ describe('Protractor Workshop app', function() {
 	});
 
 	it('should have Contact menu item with link to Contact us page', function(){
-		expect(homePage.findContactBtnText()).toEqual("Contact");
+		expect(homePage.getContactBtnText()).toEqual("Contact");
 	});
 
 
