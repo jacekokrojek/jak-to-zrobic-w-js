@@ -12,7 +12,7 @@ var HomePage = function() {
 		browser.sleep(1000);
     return element(by.css('div.active h1')).getText(); //return ative header element
   }
-  this.checkDropDownMenuWorks = ()=>{
+  this.checkItemsFromDropDown = ()=>{
     element(by.xpath("//a[contains(text(), 'About')]")).click();
     return element.all(by.xpath("//*[contains(@class, 'dropdown-menu')]/li/a")).map((el) => {
       return el.getText();

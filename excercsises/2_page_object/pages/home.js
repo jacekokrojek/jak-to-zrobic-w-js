@@ -9,13 +9,20 @@ var HomePage = function() {
   this.getTitle = function() {
     return browser.driver.getTitle();
   };
-  this.getItemsFromContactPage = ()=>{
-    return element(by.xpath('//*/span/h3')),element(by.xpath('//*/fieldset/h3'));
-  }
-  this.getContactText = () => {
+  this.findAdressAndgetInTouch=  async ()=>{
+    let array = [];
+    element(by.xpath('//fieldset/h3')).getText().then((function(el) {
+      array.push(el);
+  }))
+  element(by.xpath('//span[2]/h3')).getText().then((function(el) {
+      array.push(el);
+  }))
+    return array;
+    }
+  this.findContactBtnText = () => {
     return element(by.xpath("//a[contains(text(), 'Contact')]")).getText();
   };
-  this.getContactClick = () => {
+  this.findContactBtn = () => {
     element(by.xpath("//a[contains(text(), 'Contact')]")).click();
   };
   

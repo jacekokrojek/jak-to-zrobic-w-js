@@ -17,6 +17,6 @@ describe("Protractor Workshop app", function () {
 
   it("should display drop down after clicking on About menu item", function () {
     const dropDownMenuItems = ['Company','History','Team']
-    expect(homePage.checkDropDownMenuWorks()).toEqual(dropDownMenuItems);
+    expect(homePage.checkItemsFromDropDown()).toEqual(dropDownMenuItems);
   });
 });

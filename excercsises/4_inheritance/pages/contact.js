@@ -10,13 +10,13 @@ class Contact extends Page {
   getTitle() {
     return browser.driver.getTitle();
   }
-  fillFormSubmit(name, email, content,success) {
+  fillFormSubmit(name, email, content) {
     element(by.id("name")).clear().sendKeys(name);
     element(by.id("email")).clear().sendKeys(email);
     element(by.id("content")).clear().sendKeys(content);
     element(by.css(".test")).click();
   };
-  getSuccessInformation(){
+  findSuccessInformation(){
     const success = "Your message has been sent.";
     let getSuccess = element(by.css(".alert-success"));
     let ec = protractor.ExpectedConditions;
