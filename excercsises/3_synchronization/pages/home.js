@@ -1,23 +1,23 @@
 var HomePage = function() {
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
-
-  this.get = function() {
+  this.get =  () => {
     browser.driver.get('http://jacekokrojek.github.io/jak-to-zrobic-w-js/');
   };
 
-  this.getTitle = function() {
+  this.getTitle = () => {
     return browser.driver.getTitle();
   };
-
-  this.clickMenuAtIdx = function(idx) {
-    this.menuItems.get(idx).click();
-  };
-
-  this.getMenuTextAtIdx = function(idx) {
-    return this.menuItems.get(idx);
-  };
-  
-};
-
+  this.getHeadLine  = ()=>{
+		element(by.css('a.right')).click();//click  carusel buttton to move
+		browser.sleep(1000);
+    return element(by.css('div.active h1')).getText(); //return ative header element
+  }
+  this.getItemsFromDropDown = ()=>{
+    element(by.xpath("//a[contains(text(), 'About')]")).click();
+    return element.all(by.xpath("//*[contains(@class, 'dropdown-menu')]/li/a")).map((el) => {
+      return el.getText();
+    });
+      
+  }
+}
 module.exports = new HomePage();

@@ -1,55 +1,23 @@
-var Page = require('./page.js');
-
-var HomePage = function() {
-
-  /**
-   * Call super constructor.
-   */
-  Page.call(this);
-
-  /**
-   * Self reference.
-   */
-  var self = this;
-
-  this.speakers = element.all(by.css('figcaption'));
-
-  this.footer = require('../modules/footer');
-
-  this.get = function() {
-    this.load('/');
+let Page = require("./page.js");
+let HomePage = function () {
+  this.get = () => {
+    this.load("/");
     this.logNavigationTiming();
   };
-
-  this.getTitle = function() {
+  this.getTitle = () => {
     return browser.driver.getTitle();
   };
-
-  this.clickRegisterButton = function() {
-    this.registerButton.click();
-  };
-
-  this.getSpeakers = function(){
-    return this.speakers.map(function(elm, index) {
-      return {
-        index: index,
-        name: elm.element(by.css('a')).getText()
-      };
+  this.menuAboutButton = () => {
+    browser.executeScript("window.scrollTo(0,850)").then(function () {
+      browser.driver.sleep(1000);
+      let about = element(by.id("menu-item-4988"));
+      about.click();
     });
   };
-
-  this.getSpeakerByIdx = function(idx){
-    return this.speakers.get(0).element(by.css('a')).getText();
-  };
-
-  this.scrolltoLocationSection = function() {
-    var sectionPlace = element(by.xpath('//h3[contains(text(),"Miejsce")]'));
-    this.scrollToElement(sectionPlace)
-  };
-
-  this.scrolltoSperakersSection = function() {
-    var sectionPlace = element(by.xpath('//h3[contains(text(),"Mówcy")]'));
-    this.scrollToElement(sectionPlace);
+  this.getSpeakers = function () {
+    return element.all(by.css("figcaption h3 a")).map((el, idx) => {
+      return { index: idx, name: el.getText() };
+    });
   };
 };
 

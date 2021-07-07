@@ -1,34 +1,25 @@
-var Page = require('./page');
 
-var HomePage = function() {
+let Page = require("./page");
 
-  /**
-   * Call super constructor.
-   */
-  Page.call(this);
+class Home extends Page {
+  load() {
+    super.load("/index.html");
+  }
 
-  /**
-   * Self reference.
-   */
-  var self = this;
+  getTitle() {
+    return browser.driver.getTitle();
+  }
+  getHeadLine (){
+		element(by.css('a.right')).click();//click  carusel buttton to move
+		browser.sleep(1000);
+    return element(by.css('div.active h1')).getText(); //return ative header element
+  }
+  getDropDownMenuWorks(){
+    element(by.xpath("//a[contains(text(), 'About')]")).click();
+    return element.all(by.xpath("//*[contains(@class, 'dropdown-menu')]/li/a")).map((el) => {
+      return el.getText();
+    });
+  }
+}
 
-  this.menuItems = element.all(by.css('ul.nav > li > a')); 
-
-  this.get = function() {
-	this.load('/');    
-  };
-
-  this.clickMenuAtIdx = function(idx) {
-    this.menuItems.get(idx).click();
-  };
-
-  this.getMenuTextAtIdx = function(idx) {
-    return this.menuItems.get(idx);
-  };
-  
-};
-
-HomePage.prototype = Object.create(Page.prototype);
-HomePage.prototype.constructor = HomePage;
-
-module.exports = new HomePage();
+module.exports = new Home();
